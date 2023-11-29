@@ -1,0 +1,74 @@
+Step-1: app.component.html
+<divclass="container-fluid">
+<h1> Registration Form></h1>
+<form[formGroup]="registrationform"(ngSubmit)="loginrequest()">
+<divclass="form-group">
+<label> Name</label>
+<inputformControlName="username"type="text"class="form-control">
+</div>
+<div>
+<label> Password</label>
+<inputformControlName="password"type="password"class="form-control">
+</div>
+<div>
+<label> Confirm Password</label>
+<inputformControlName="cfnpassword"type="password"class="form-control">
+</div>
+<buttonclass="btnbtn-primary"type="submit">Submit</button>
+</form>
+</div>
+
+Step 2: app.component.ts
+
+import { Component } from'@angular/core';
+import {FormGroup, FormControl } from'@angular/forms';
+
+@Component({
+selector:'app-root',
+templateUrl:'./app.component.html',
+styleUrls: ['./app.component.css']
+
+GPREC, VII SEM CSE ANGULAR LAB
+
+11
+
+})
+exportclassAppComponent {
+title="exp3";
+registrationform=newFormGroup({username:newFormControl('Admin'),
+password:newFormControl(''),
+cfnpassword:newFormControl('')});
+loginrequest()
+{
+console.log(this.registrationform.value);
+}
+}
+
+Step 3: app.module.ts
+import { NgModule } from'@angular/core';
+import { BrowserModule } from'@angular/platform-browser';
+import { AppRoutingModule } from'./app-routing.module';
+import { AppComponent } from'./app.component';
+import { ReactiveFormsModule } from'@angular/forms';
+@NgModule({
+declarations: [
+AppComponent,
+],
+imports: [
+BrowserModule,
+AppRoutingModule,ReactiveFormsModule
+],
+providers: [],
+bootstrap: [AppComponent]
+})
+exportclassAppModule { }
+
+Step 4:app-routing.module.ts
+import { NgModule } from'@angular/core';
+import { RouterModule, Routes } from'@angular/router';
+constroutes: Routes = [];
+@NgModule({
+imports: [RouterModule.forRoot(routes)],
+exports: [RouterModule]
+})
+exportclassAppRoutingModule { }
