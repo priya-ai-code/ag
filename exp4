@@ -1,0 +1,102 @@
+In app-routing.module.ts
+Declare the pathunder an array constroutes:Route
+
+constroutes: Routes = [
+{path :'s',component:StudentComponent},
+{path :'f',component:FacultyComponent}
+];
+
+Step 3: app.module.ts
+
+@NgModule({
+declarations: [
+AppComponent,
+
+myroutes
+],
+
+Step 4: app.component.html
+<router-outlet></router-outlet>
+
+<nav>
+
+<a routerLink="/f" style="padding: 10px;">FACULTY </a>
+<a routerLink="/s" style="padding: 10px;">STUDENT</a>
+</nav>
+a single page application (SPA) does not have different pages to link to. Instead,
+it has different views to display to the user. To allow a user to navigate and change
+the view, you will want to use the RouterLink directive instead of href:
+
+Step 5: app.component.css
+
+h1{
+text-align: center;
+color: #ce2b2b;
+}
+nav a {
+padding: 15px 20px;
+text-decoration: none;
+margin-top: 10px;
+display: inline-block;
+background-color:aqua;
+border-radius: 4px;
+margin-left: 20px;
+}
+nav a:visited, a:link {
+color: #3643b6;
+}
+nav a:hover {
+color: #fff;
+background-color: #3643b6;
+}
+nav a.active {
+color: #ce2b2b;
+background-color: #49ce0c;
+}
+
+Step 6: Now, in faculty.component.html let’s write a simple html code for faculty
+login page.similarly, in student.component.html
+faculty.component.html
+html>
+<body>
+
+<h1> Faculty Login Form </h1>
+<form>
+<divclass="container">
+<label>Username : </label>
+<inputtype="text"placeholder="Enter Username"name="username"required>
+<label>Password : </label>
+<inputtype="password"placeholder="Enter Password"name="password"required>
+<buttontype="submit">Login</button>
+<inputtype="checkbox"checked="checked"> Remember me
+<buttontype="button"class="cancelbtn"> Cancel</button>
+Forgot <ahref="#"> password? </a>
+</div>
+</form>
+</body>
+</html>
+
+student.component.html
+<html>
+<body>
+<tablealign="right">
+<tr><td>
+<h1 > Student Login Form </h1>
+<form>
+<divclass="container">
+<label>Username : </label>
+<inputtype="text"placeholder="Enter Username"name="username"required> <br>
+<label>Password : </label>
+
+<inputtype="password"placeholder="Enter
+
+Password"name="password"required><br>
+<buttontype="submit">Login</button>
+<inputtype="checkbox"checked="checked"> Remember me
+<buttontype="button"class="cancelbtn"> Cancel</button>
+Forgot <ahref="#"> password? </a>
+</div>
+</form>
+</td></tr></table>
+</body>
+</html>
