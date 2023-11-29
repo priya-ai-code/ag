@@ -1,0 +1,89 @@
+Step 1: Create two components with the names
+
+ angular
+ Java script
+
+Step 2: Go to src/app/angular/angular.component.html
+
+<divclass="container">
+<div><imgsrc="assets/angular.jpg"alt="Angular"style="width: 240px; height: 180px;"></div>
+<divstyle="text-align: left; padding: 2px 50px;">
+<h3>{{title}} Course</h3>
+</div>
+<divstyle="text-align: left; padding: 2px 80px;">
+<button(click)="OnEnroll()"style="background-color: blue">Enroll</button>
+</div>
+</div>
+
+Step 3: Go to src/app/angular/angular.component.ts
+
+import { Component } from'@angular/core';
+import { EnrollService } from'../Services/enroll.service';
+@Component({
+selector:'app-angular',
+templateUrl:'./angular.component.html',
+styleUrls: ['./angular.component.css'],
+providers:[EnrollService]
+})
+exportclassAngularComponent {
+title= "Angular"
+constructor(privateenrollService:EnrollService)
+{
+}
+
+GPREC, VII SEM CSE ANGULAR LAB
+
+21
+
+OnEnroll()
+{
+this.enrollService.OnEnrollClicked(this.title);
+}
+
+}
+
+Step 4: Go to src/app/javascript/javascript.component.html
+<divclass="container">
+<div><imgsrc="assets/javascript1.jpg"style="width:240px; height: 180px; "></div>
+<divstyle="text-align: left; padding: 2px 50px;">
+<h3>{{title}} Course</h3>
+</div>
+<divstyle="text-align: left; padding: 2px 80px;">
+<button(click)="OnEnroll()"style="background-color: yellow">Enroll</button>
+</div>
+</div>
+
+Step 5: Go to src/app/javascript/javascript.component.ts
+import { Component } from'@angular/core';
+import { EnrollService } from'../Services/enroll.service';
+@Component({
+selector:'app-javascript',
+templateUrl:'./javascript.component.html',
+styleUrls: ['./javascript.component.css'],
+providers:[EnrollService]
+})
+exportclassJavascriptComponent {
+title= "JavaScript";
+constructor(privateenrollService:EnrollService)
+{
+}
+OnEnroll()
+{
+this.enrollService.OnEnrollClicked(this.title);
+}
+}
+
+GPREC, VII SEM CSE ANGULAR LAB
+
+22
+
+Step 6: Create a folder with the name Services in src/app/Servies
+Step 7: Create a file with the name enroll.service.ts in
+src/app/Servies/enroll.service.ts
+exportclassEnrollService
+{
+OnEnrollClicked(title: string)
+{
+alert('Thanking for enrolling to '+title+'course.');
+}
+}
