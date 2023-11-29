@@ -1,0 +1,55 @@
+app.module.ts.
+import{BrowserModule}from'@angular/platform-browser';
+import{NgModule}from'@angular/core';
+import{AppComponent}from'./app.component';
+import{BrowserAnimationsModule}from'@angular/platform-browser/animations';
+import{MatSidenavModule}from'@angular/material'
+import{FormsModule,ReactiveFormsModule}from'@angular/forms';
+@NgModule({
+declarations:[
+AppComponent
+],
+imports:[
+BrowserModule,
+BrowserAnimationsModule,
+MatSidenavModule,
+FormsModule,
+ReactiveFormsModule
+],
+providers:[],
+bootstrap:[AppComponent]
+})
+exportclassAppModule{}
+
+GPREC, VII SEM CSE ANGULAR LAB
+
+24
+
+Step 2:app.component.css.
+.tp-container {
+position: absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+background:#eee;
+}
+.tp-section {
+display: flex;
+align-content:center;
+align-items:center;
+height:60px;
+width:100px;
+}
+Step 3: app.component.html.
+<mat-sidenav-containerclass="tp-container">
+<mat-sidenavmode="side"opened>
+<sectionclass="tp-section">
+<span>File</span>
+</section>
+<sectionclass="tp-section">
+<span>Edit</span>
+</section>
+</mat-sidenav>
+<mat-sidenav-content>Main content</mat-sidenav-content>
+</mat-sidenav-container>
