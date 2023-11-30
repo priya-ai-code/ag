@@ -1,0 +1,50 @@
+Step 1: Generate a service with the command ng g s fetch-data.
+Then, two files will be created with fetch-data.service.spec.ts and fetch-data.service.ts
+
+Step 2: fetch-data.service.ts
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+@Injectable({
+providedIn: 'root'
+})
+export class FetchDataService {
+constructor(private http:HttpClient) { }
+getUser(): Observable<any>{
+return this.http.get("https://jsonplaceholder.typicode.com/users");
+}
+}
+Step 3: app.component.ts
+import { Component } from '@angular/core';
+import { FetchDataService } from './fetch-data.service';
+@Component({
+selector: 'app-root',
+templateUrl: './app.component.html',
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+title = 'Demo';
+userList:any[] = [];
+constructor(private fetchService: FetchDataService) {}
+ngOnInit(): void{
+this.fetchService.getUser().subscribe(user => this.userList = user);
+}
+}
+Step-4:
+app.component.html
+<table style="margin: 0 auto; border: 1px black solid;">
+<thead>
+<th style="border: 1px black solid; padding: 15px;">Name</th>
+<th style="border: 1px black solid; padding: 15px;">Id</th>
+<th style="border: 1px black solid; padding: 15px;">Email</th>
+<th style="border: 1px black solid; padding: 15px;">Street</th>
+</thead>
+<tr *ngFor="let user of userList">
+<td style="border: 1px black solid; padding: 15px;">{{user.name}}</td>
+<td style="border: 1px black solid; padding: 15px;">{{user.id}}</td>
+<td style="border: 1px black solid; padding: 15px;">{{user.email}}</td>
+<td style="border: 1px black solid; padding: 25px;">{{user.address.street}}</td>
+</tr>
+</table>
+
+https://jsonplaceholder.typicode.com/users
