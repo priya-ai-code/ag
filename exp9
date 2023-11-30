@@ -1,0 +1,27 @@
+ng new age-calculator --create-application=false
+
+Step 2:
+ng generate library<library-name>
+ng g library age-cal
+
+Step 3:
+Now add our library to our root package.json as
+"build-library": "ng build age-cal”
+npm run build-library
+
+Step 4:
+"pack-lib": "cd dist/age-cal&&npm pack"
+
+
+
+Step 5:
+Create a new angular application and install your library inside this using:
+npm install <path-to-tgz-file>
+Check your package.json to see if it has been installed and is reflected inside the dependencies.
+
+Step 6: Import the module of your library and use the component.
+app.module.ts
+import { AgeCalModule } from'age-cal';
+
+Add library component selector in app.compoment.html
+<lib-age-cal></lib-age-cal>
